@@ -17,7 +17,11 @@
         <a class="nav-link" href="{% url 'index' %}" style="font-size:30px; font-weight:bolder; color:blue; font-family: 'Carter One', cursive; ">Hood</a>
         {% endif %}
       </div>
-   
+      <form class="navbar-form navbar-center" role="search" id='search_form' action="{% url 'search_results' %}" style='margin-top:10px;'>
+        <div class="form-group">
+          <input type="text" name="business" placeholder="Search business..." id="search">
+        </div>
+      </form>
       <div class='nav navbar navbar-right'>
               {% if user.is_authenticated %}
                   <div class="dropdown">
