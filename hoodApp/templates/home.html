@@ -53,7 +53,22 @@
         {% endfor %}
     </div>
     </div>
-  
+    <div id='posts' class="tab-pane container fade" style='margin-top:80px;'>
+    <div class='row'>
+    <div class='col-md-1'></div>
+    <div class='col-md-11'>
+    <div class='row' style='grid-gap:20px;'>
+        {% for alert in alerts %}
+        <div class='col-md-5 card' style='box-shadow:2px 2px 3px grey;'><br>
+            <div><img src='{{alert.user.profile.profile_pic.url}}' width='25px' height='25px' style='border-radius:50%; float:left;'> &nbsp; Posted by {{alert.user}} <br> &nbsp;<small> {{alert.date_posted}}</small></div><hr>
+            <h4><b>{{alert.title}}</b></h4>
+                <div>
+                    <p>{{alert.content}}</p>
+                </div>
+        </div>
+        {% endfor %}
+        </div>
+    <br>
 
     <hr><br>
         
