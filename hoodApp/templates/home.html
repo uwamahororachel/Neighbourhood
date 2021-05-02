@@ -3,7 +3,43 @@
 {% block content %}
 {% load bootstrap4 %}
 {{block.super}}
+<style>
+    /* .tab-content{
+    } */
+    .tab-pane{
+        margin:50px auto;
+    }
+    .down{
+         background-color:rgb(211, 144, 0);
+      
+            border-radius: 5px;
+            background: #0F2027;  
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    }
+    .nav a{
+        color: white;
+    }
+    .submn{
+        background-color: black;
+        background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    }
+    ul li{
+        margin: 20px 0px;
+        color: blanchedalmond;
+        list-style-type: none;
+    }
+    ul i{
+        font-size: 20px;
+    }
+    ul li:nth-child(3){
+        color: brown;
+        text-decoration: underline;
+    }
+</style>
 <div class='container'>
     {% if user.is_authenticated %}
     <ul class="nav justify-content-center nav-tabs down">
