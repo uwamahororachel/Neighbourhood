@@ -1,0 +1,33 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<style>
+    body{
+        background-color: rgb(192,192,192);
+        margin: 0 60px;
+    }
+    .col-md-10{
+
+        padding:20px 40px;
+        background-color:rgb(207, 168, 168);
+    }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class='col-md-3' id='login'></div>
+    <div class='col-md-7'>
+    <div class="col-md-10">
+      {% if form.errors %}
+        <p> Password or Username is incorrect </p>
+      {% endif %}
+
+      
+
+      <div class='panel text-center' style='padding:15px;'>Don't have an account? Register <a href="/register">here</a></div>
+    </div>
+    <!-- empty div -->
+    <div class="col-md-4"></div></div>
+  </div>
+</div>
+
+{% endblock %}
