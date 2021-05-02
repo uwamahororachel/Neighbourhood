@@ -1,0 +1,54 @@
+{%extends "base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<style>
+  body{
+    background-color: wheat;
+}
+    .panel{
+      border: 1px solid red;
+     color: white;
+     padding: 20px;
+     background: #3C3B3F;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+    }
+
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class='col-md-3'></div>
+    <div class='col-md-7'>
+    <div class="col-md-10">
+      {% if form.errors %}
+        <p class="text-danger"> <b>Please Try Again</b></p>
+      {% endif %}
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h3 class="text-center">Register Your Business</h3>
+          <br>
+        </div>
+        <div class="panel-body">
+
+          <form  action="" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form%}
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-default btn-sm" style='width:100%' value="Submit">
+            </div>
+
+            <input type="hidden" name="next" value="{{next}}">
+
+          </form>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-4"></div></div>
+  </div>
+</div>
+
+{% endblock %}
