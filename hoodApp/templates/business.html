@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{% load static%}
+{% block content %}
+{{block.super}}
+<style>
+   body{
+       background-color: black;
+   }
+    ul li{
+        margin: 15px 0px;
+        font-size: 13px;
+        list-style-type: none;
+    }
+    ul li i{
+        font-size: 20px;
+    }
+    .divi{
+        border: 5px solid rgb(214, 214, 214);
+        width: 70%;
+        margin: 0px auto;
+        color: #fff;;
+        background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   }
+</style>
+<div class="divi" style="padding:50px 20px;">
+    <h4 class='text-center'><strong>{{business.name}}</strong></h4><br><br>
+    <div class='row'>
+        <div class='col-md-1'></div>
+        <div class='col-md-5 col-lg-5'>
+            <img src={{business.pic.url}} width='100%' alt='{{business.name}}'>
+        </div>
+        <div class='col-md-5 col-lg-5' style='margin-top:30px;'>
+            <ul>
+            <li><i class="fas fa-city"> Location:</i><strong><span>{{business.neighborhood}}</span></strong></li>
+            <li><i class="fas fa-city"> Contact:</i><strong><span>{{business.contacts}}</span></strong></li>
+            <li><i class="fas fa-city"> Description:</i><strong><span>{{business.description}}</span> </strong></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
