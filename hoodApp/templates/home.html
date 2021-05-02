@@ -1,0 +1,78 @@
+{%extends 'base.html'%}
+{% load static%}
+{% block content %}
+{% load bootstrap4 %}
+{{block.super}}
+
+<div class='container'>
+    {% if user.is_authenticated %}
+    <ul class="nav justify-content-center nav-tabs down">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#overview">Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#business">Business</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#leave">Leave neighborhood</a>
+        </li>
+      </ul>
+    <div class='tab-content'>
+    <div id='overview' class="tab-pane container active ">
+        <h4 class='text-center' style="color:rgb(221, 181, 18);"><strong style="text-transform: capitalize;">{{hood.name}}</strong></h4>
+        <div class='row submn'>
+        <div class='col-md-1 ' ></div>
+            <div class='col-md-5'>
+                <img src={{hood.hood_pic.url}} width='100%'>
+            </div>
+            <div class='col-md-5 '>
+                <ul>
+                <li><strong><i class="fa fa-map-pin" aria-hidden="true"></i> Location: </strong><span>{{hood.location}}</span></li>
+                <li><strong><i class="fas fa-male"></i> Number of occupants: </strong><span>{{count}}</span></li>
+                <li><strong> Emergency Telestronghone numbers</strong></li>
+                <li><strong><i class="fas fa-ambulance"></i> Ambulance: </strong><span>{{hood.health_contact}}</span></li>
+                <li><strong><i class="fa fa-user-circle" aria-hidden="true"></i> Police: </strong><span>{{hood.police_contact}}</span></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+     <div id='business'class="tab-pane container fade" >
+        <a href='/newbusiness' class='btn' style='text-align:center;color:white;background-color:rgb(51, 45, 45);'>Register your business</a>
+        <div class="row" style='grid-gap:20px;'>
+    {% for business in businesses %}
+        <div class='col-md-5 card ' style='text-align:center;margin:20px 0'><br>
+            <h5><b>{{business.name}}</b></h4><br>
+                <div>
+                    <p>{{business.description}}</p>
+                </div>
+                <a class='btn btn-default' href='/business/{{business.id}}'>View</a><br><br>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+  
+
+    <hr><br>
+        
+    
+
+<div id='leave' class="tab-pane container fade text-center" style="background-color:rgb(192,192,192);padding:80px 50px;" >
+    <p>Do you confirm to leave this neighborhood?</p>
+    <a class='btn btn-success' href="{% url 'leave' %}">Yes</a> <a class='btn btn-danger' href="{% url 'home' %}">No</a>
+</div>
+</div></div>
+{% else %}
+    <div>
+        {% for hood in hoods %}
+        <div>
+            <h3>{{hood.name}}</h3>
+            <p>{{hood.location}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock%}
