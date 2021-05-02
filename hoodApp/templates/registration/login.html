@@ -21,8 +21,20 @@
         <p> Password or Username is incorrect </p>
       {% endif %}
 
-      
+      <div class="panel panel-default">
 
+       
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm" style='width:100%' value="Login">
+            </div>
+
+            <input type="hidden" name="next" value="{{next}}">
+
+          </form>
+        </div>
+        
+      </div>
+      
       <div class='panel text-center' style='padding:15px;'>Don't have an account? Register <a href="/register">here</a></div>
     </div>
     <!-- empty div -->
